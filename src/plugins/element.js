@@ -1,14 +1,24 @@
-import Vue from 'vue'
 import { Button } from 'element-ui'
 import locale from 'element-ui/lib/locale'
-import i18n from '../i18n'
-import '../assets/scss/element-variables.scss'
+import i18n from '../locales'
 
-for (const lang of i18n.availableLocales) {
-  const elementUILang = require(`element-ui/lib/locale/lang/${lang}`).default
-  i18n.mergeLocaleMessage(lang, elementUILang)
+function initElementUI (Vue) {
+  const availableLocales = i18n.availableLocales
+  Vue.prototype.$log.info('loading elementUI language', availableLocales)
+
+  for (const lang of availableLocales) {
+    try {
+      const elementUILang = require(`element-ui/lib/locale/lang/${lang}`).default
+      i18n.mergeLocaleMessage(lang, elementUILang)
+    } catch (e) {
+      Vue.prototype.$log.warn(e.message)
+    }
+  }
+  locale.i18n((key, value) => i18n.t(key, value))
+  AddElementUIComponents(Vue)
 }
 
-locale.i18n((key, value) => i18n.t(key, value))
-
-Vue.use(Button)
+function AddElementUIComponents (Vue) {
+  Vue.use(Button)
+}
+export default initElementUI

@@ -2,12 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import i18n from './i18n'
-import './plugins/element.js'
-import logLevel from './plugins/logLevel'
+import i18n from './locales'
+import './plugins'
+import './assets/scss/element-variables.scss'
 
 Vue.config.productionTip = false
-Vue.use(logLevel, { level: process.env.VUE_APP_LOG_LEVEL })
 
 new Vue({
   router,
