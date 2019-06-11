@@ -20,6 +20,13 @@ export default {
   name: 'app',
   components: {
     HelloWorld
+  },
+  mounted () {
+    this.$log.trace('trace')
+    this.$log.debug('debug')
+    this.$log.info('info')
+    this.$log.warn('warn')
+    this.$log.error('error')
   }
 }
 </script>
