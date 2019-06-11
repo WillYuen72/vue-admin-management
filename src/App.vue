@@ -8,6 +8,7 @@
         below
       </p>
       <el-button>el-button</el-button>
+      <languages></languages>
     </div>
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
@@ -15,10 +16,11 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import languages from './components/selectInput/languages.vue'
 export default {
   name: 'app',
   components: {
+    languages,
     HelloWorld
   },
   mounted () {

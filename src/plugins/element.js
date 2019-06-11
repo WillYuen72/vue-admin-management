@@ -1,6 +1,12 @@
-import { Button } from 'element-ui'
+import {
+  Button,
+  Select,
+  Option
+} from 'element-ui'
 import locale from 'element-ui/lib/locale'
 import i18n from '../locales'
+
+const INIT_ELEMENTS = [Button, Select, Option]
 
 function initElementUI (Vue) {
   const availableLocales = i18n.availableLocales
@@ -19,6 +25,9 @@ function initElementUI (Vue) {
 }
 
 function AddElementUIComponents (Vue) {
-  Vue.use(Button)
+  for (const el of INIT_ELEMENTS) {
+    Vue.prototype.$log.info('add', el.name)
+    Vue.use(el)
+  }
 }
 export default initElementUI
