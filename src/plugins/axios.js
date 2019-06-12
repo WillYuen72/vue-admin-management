@@ -2,17 +2,32 @@ import Axios from 'axios'
 
 const AxiosPlugin = {}
 
-AxiosPlugin.install = function (Vue, config) {
-  Vue.prototype.$log.info('loading axios config', config)
+AxiosPlugin.install = function (Vue, apiConfig) {
+  Vue.prototype.$log.info('loading axios config', apiConfig)
+  const instances = {}
+  const apis = apiConfig.apis
+  for (const key in apis) {
+    const instance = Axios.create({
+      baseURL: `${apis[key].baseURL}${apis[key].tag}${apis[key].version}`,
+      timeout: apiConfig.common.timeout
+    })
 
-  const interceptorsForRequest = (axiosConfig) => {}
-  const interceptorsForResponse = (axiosResponse) => {}
+    instance.interceptors.request.use((config) => {
+      return config
+    }, (error) => {
+      return Promise.reject(error)
+    })
 
-  const instance = Axios.create()
-  instance.interceptors.request.use(interceptorsForRequest)
-  instance.interceptors.response.use(interceptorsForResponse)
+    instance.interceptors.response.use((response) => {
+      return response
+    }, (error) => {
+      return Promise.reject(error)
+    })
 
-  Vue.prototype.$axios = {}
+    instances[key] = instance
+    Vue.prototype.$log.info('created axios instance for', key)
+  }
+  Vue.prototype.$axios = instances
 }
 
 export default AxiosPlugin

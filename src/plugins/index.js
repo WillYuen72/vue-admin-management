@@ -4,5 +4,8 @@ import axios from './axios'
 import element from './element'
 
 Vue.use(logLevel, { level: process.env.VUE_APP_LOG_LEVEL })
-Vue.use(axios, {})
+
+const apiConfig = require(`../config/api.${process.env.VUE_APP_API_TYPE}.json`)
+Vue.use(axios, apiConfig)
+
 element(Vue)

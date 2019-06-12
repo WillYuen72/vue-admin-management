@@ -1,0 +1,14 @@
+{
+  "common": {
+    "timeout": 60000
+  },
+  "apis": {
+    "simple": {
+      "baseURL": "",
+      "version": "",
+      "tag": "",
+      "config": {
+      }
+    }
+  }
+}
