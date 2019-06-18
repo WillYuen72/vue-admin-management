@@ -1,12 +1,15 @@
 import {
   Button,
   Select,
-  Option
+  Option,
+  Card,
+  Table,
+  TableColumn
 } from 'element-ui'
 import locale from 'element-ui/lib/locale'
 import i18n from '../locales'
 
-const INIT_ELEMENTS = [Button, Select, Option]
+const INIT_ELEMENTS = [Button, Select, Option, Card, Table, TableColumn]
 
 function initElementUI (Vue) {
   const availableLocales = i18n.availableLocales
