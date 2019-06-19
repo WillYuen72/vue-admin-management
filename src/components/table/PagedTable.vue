@@ -46,7 +46,7 @@ export default {
   props: {
     data: {
       type: Array,
-      required: true,
+      required: true
     },
     columns: {
       type: Array,
@@ -116,7 +116,7 @@ export default {
         return this.data
       }
 
-      let start = 0;
+      let start = 0
       let end = this.currentPageSize
       if (this.currentPage !== 1) {
         start = (this.currentPage - 1) * this.currentPageSize
