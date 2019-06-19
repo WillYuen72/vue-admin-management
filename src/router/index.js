@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/Home.vue'
-import nintendo from './route/about'
+import about from './route/about'
+import demo from './route/demo'
 
 Vue.use(Router)
 
@@ -17,7 +18,8 @@ const instance = new Router({
   ]
 })
 
-instance.addRoutes(nintendo)
+instance.addRoutes(about)
+instance.addRoutes(demo)
 
 instance.beforeEach((to, from, next) => {
   /* must call `next` */
