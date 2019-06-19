@@ -1,13 +1,15 @@
 <template>
   <el-card>
-    <div slot="header" class="clearfix">
-      <span>Paged Table</span>
+    <div slot="header" class="clearfix" style="text-align: left;">
+      <h1>Paged Table</h1>
     </div>
-    <paged-table :data="data" :columns="columns" :paginationAttrs='paginationAttrs' showActionColumn @size-change="sizeChange">
-      <template v-slot:action-column="{ data }">
-        <el-button @click="view(data.$index, data.row)">View</el-button>
-      </template>
-    </paged-table>
+    <div style="margin-top: 20px;">
+      <paged-table :data="data" :columns="columns" :paginationAttrs='paginationAttrs' showActionColumn @size-change="sizeChange">
+        <template v-slot:action-column="{ data }">
+          <el-button @click="view(data.$index, data.row)">View</el-button>
+        </template>
+      </paged-table>
+    </div>
   </el-card>
 </template>
 

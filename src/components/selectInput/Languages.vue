@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <el-select v-model="selected" @change="changeLanguage">
-      <el-option v-for="(key, index) in langs" :key="index" :value="key" :label="key.toUpperCase()"></el-option>
-    </el-select>
-  </div>
+  <el-select v-model="selected" @change="changeLanguage">
+    <el-option v-for="(key, index) in langs" :key="index" :value="key" :label="key.toUpperCase()"></el-option>
+  </el-select>
 </template>
 
 <script>

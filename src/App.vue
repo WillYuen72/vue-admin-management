@@ -1,20 +1,12 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <languages></languages>
-      <router-view></router-view>
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import languages from './components/selectInput/languages.vue'
 export default {
-  name: 'app',
-  components: {
-    languages
-  }
+  name: 'app'
 }
 </script>
 
@@ -25,6 +17,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
