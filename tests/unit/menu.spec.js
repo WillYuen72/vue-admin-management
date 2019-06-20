@@ -70,7 +70,7 @@ describe('Menu.vue', () => {
         menuItems: menuItems
       }
     })
-
+    console.log(wrapper.html())
     expect(wrapper.text()).to.include('TableSub Menu\n            Simple Menu 1\n          Sub Menu with Group Group 1\n              Home\n             Group 2\n              Sub menu in group 2')
   })
 })
