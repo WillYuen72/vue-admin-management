@@ -1,13 +1,6 @@
 <template>
   <el-container style="height: auto; border: 1px solid #eee">
-    <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-      <el-menu :default-openeds="[]">
-        <el-menu-item index="1">
-          <i class="el-icon-menu"></i>
-          <span slot="title">Table</span>
-        </el-menu-item>
-      </el-menu>
-    </el-aside>
+    <custom-menu :menuItems="menuItems" @select="selected" ></custom-menu>
 
     <el-container>
       <el-header style="text-align: right; font-size: 12px">
@@ -27,12 +20,70 @@
 </template>
 
 <script>
+import Menu from '../components/Menu'
 import Languages from '../components/selectInput/Languages'
 
 export default {
   name: 'demo-index',
   components: {
-    [Languages.name]: Languages
+    [Languages.name]: Languages,
+    [Menu.name]: Menu
+  },
+  data () {
+    return {
+      menuItems: [
+        {
+          index: 1,
+          needIcon: true,
+          icon: 'el-icon-menu',
+          name: 'Table',
+          path: '/demo/paged-table'
+        },
+        {
+          index: 2,
+          needIcon: true,
+          icon: 'el-icon-menu',
+          name: 'Sub Menu',
+          children: [
+            {
+              index: 1,
+              name: 'Simple Menu 1'
+            }
+          ]
+        },
+        {
+          index: 3,
+          needIcon: true,
+          icon: 'el-icon-menu',
+          name: 'Sub Menu with Group',
+          children: [
+            {
+              index: 1,
+              isGroup: true,
+              name: 'Group 1',
+              items: [
+                {
+                  index: 1,
+                  name: 'Home',
+                  path: '/'
+                }
+              ]
+            },
+            {
+              index: 2,
+              isGroup: true,
+              name: 'Group 2',
+              items: [
+                {
+                  index: 1,
+                  name: 'Sub menu in group 2'
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   },
   methods: {
     selected (index, indexPath) {

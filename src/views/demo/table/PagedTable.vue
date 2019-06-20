@@ -4,7 +4,7 @@
       <h1>Paged Table</h1>
     </div>
     <div style="margin-top: 20px;">
-      <paged-table :data="data" :columns="columns" :paginationAttrs='paginationAttrs' showActionColumn @size-change="sizeChange">
+      <paged-table :data="data" :columns="columns" :paginationAttrs="paginationAttrs" showActionColumn @size-change="sizeChange">
         <template v-slot:action-column="{ data }">
           <el-button @click="view(data.$index, data.row)">View</el-button>
         </template>

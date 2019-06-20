@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-row>
-      <router-link to="/demo/paged-table">Demo Table</router-link>
+      <router-link to="/demo">Demo</router-link>
     </el-row>
     <el-row>
       <router-link to="/about">About Us</router-link>
